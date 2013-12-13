@@ -1,0 +1,38 @@
+/* 
+    Document   : main
+    Created on : Sep 1, 2013, 9:00:03 PM
+    Author     : Pranit
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+body {
+    /*--Background--*/
+    background: #f6f6f6;
+    background: -moz-linear-gradient(top,  #f6f6f6 0%, #f9f9f9 50%, #f6f6f6 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f6f6f6), color-stop(50%,#f9f9f9), color-stop(100%,#f6f6f6));
+    background: -webkit-linear-gradient(top,  #f6f6f6 0%,#f9f9f9 50%,#f6f6f6 100%);
+    background: -o-linear-gradient(top,  #f6f6f6 0%,#f9f9f9 50%,#f6f6f6 100%);
+    background: -ms-linear-gradient(top,  #f6f6f6 0%,#f9f9f9 50%,#f6f6f6 100%);
+    background: linear-gradient(to bottom,  #f6f6f6 0%,#f9f9f9 50%,#f6f6f6 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f6f6', endColorstr='#f6f6f6',GradientType=0 );
+
+    font-family: wf_SegoeUI, 'Segoe UI', Segoe, 'Segoe WP', Tahoma, Verdana, Arial, sans-serif;
+}
+
+div {
+    height: 100%;
+    position: relative;
+}
+
+img#we {
+    display: none;
+    position:absolute;top:0;bottom:0;margin:auto;
+}
+
+.pm_block {
+    width: 100%;
+    border: 1px #a0e9c6 solid;
+    border-radius: 5px;
+    background-color: #d0e9c6
+}
