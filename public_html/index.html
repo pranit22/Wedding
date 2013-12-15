@@ -1,29 +1,117 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Welcome!</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Bootstrap -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <title>Pranali-Pranit</title>
         <link href="css/main.css" rel="stylesheet">
+        <link href='http://fonts.googleapis.com/css?family=Berkshire+Swash' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Electrolize' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Bad+Script' rel='stylesheet' type='text/css'>
     </head>
     <body>
-        <div class="row-fluid">
-            <div class="span1"></div>
-            <div class="span3">
-                <div class="pm_block">Hello</div>
-            </div>
-            <div class="span4">
-                <img id="we" class="img-polaroid img-rounded" src="img/we.jpg" />
-            </div>
-            <div class="span3">
-            </div>
-            <div class="span1"></div>
+
+        <div id="banner" style="background-image: url('img/banner.png'); height: 120px">
+            Pranali & Pranit
         </div>
+
+        <div id="main">
+            <table>
+                <tr>
+                    <td>
+                        <img src="img/we.jpg" class="mainImage">
+                    </td>
+                    <td style="padding-left: 50px">
+                        <div class="fancy">
+                            Wedding Invitation
+                        </div>
+                        <div class="time">
+                            December 26, 2013
+                        </div>
+                        <div class="place">
+                            Airoli, Navi Mumbai
+                        </div>
+                        <br /><br />
+                        <div id="countdown_div">
+                            <table id="countdown_table">
+                                <tr>
+                                    <td id="days" class="timer_value"></td>
+                                    <td id="hours" class="timer_value"></td>
+                                    <td id="minutes" class="timer_value"></td>
+                                    <td id="seconds" class="timer_value"></td>
+                                </tr>
+                                <tr class="fields">
+                                    <td>Days</td>
+                                    <td>Hrs</td>
+                                    <td>Min</td>
+                                    <td>Sec</td>
+                                </tr>
+                            </table>
+                        </div>
+
+
+                    </td>
+                </tr>
+            </table>
+            
+                          <div class="thumbs">
+                        <span>
+                            <img src="img/card1_thumb.jpg"><br/>
+                            Wedding Card - 1
+                        </span>
+                        <span>
+                            <img src="img/card2_thumb.jpg"><br/>
+                            Wedding Card - 2
+                        </span>
+                        <span>
+                            <img src="img/card3_thumb.jpg"><br/>
+                            Wedding Card - 3
+                        </span>
+                        <span>
+                            <img src="img/location.png"><br/>
+                            Venue
+                        </span>
+                        <span>
+                            <img src="img/contact.png"><br/>
+                            Contact Us
+                        </span>
+                </div>
+        </div>
+
 
         <!-- Scripts -->
         <script src="http://code.jquery.com/jquery.js"></script>
-        <script src="js/bootstrap.min.js"></script>
         <script src="js/main.js"></script>
+
+        <script>
+            $(document).ready(function() {
+                updateWCTime();
+            });
+
+            function updateWCTime()
+            {
+                now = new Date();
+                kickoff = Date.parse("December 26, 2013 12:38:00");
+                diff = kickoff - now;
+
+                days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                hours = Math.floor(diff / (1000 * 60 * 60));
+                mins = Math.floor(diff / (1000 * 60));
+                secs = Math.floor(diff / 1000);
+
+                dd = days;
+                hh = hours - days * 24;
+                mm = mins - hours * 60;
+                ss = secs - mins * 60;
+
+                document.getElementById("days").innerHTML = dd;
+                document.getElementById("hours").innerHTML = hh;
+                document.getElementById("minutes").innerHTML = mm;
+                document.getElementById("seconds").innerHTML = ss;
+            }
+            setInterval('updateWCTime()', 1);
+
+        </script>
+        
+        <noscript>
     </body>
 </html>
