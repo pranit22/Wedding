@@ -6,11 +6,16 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet">
         <link href='http://fonts.googleapis.com/css?family=Berkshire+Swash' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC:700' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Electrolize' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Bad+Script' rel='stylesheet' type='text/css'>
     </head>
     <body>
+
+
+        <table style="background-color: #fff;opacity: 0.9;width:100%;height: 100%;position:fixed;top: 0;left:0;z-index: 5000"
+               id="loader">
+            <tr><td><img src="http://www.cclonline.com/assets/images/ajax-loader.gif"</td></tr>
+        </table>
 
         <div id="banner" style="background-image: url('img/banner.png'); height: 120px">
             Pranali & Pranit
@@ -89,9 +94,12 @@
         <!-- Scripts -->
         <script src="http://code.jquery.com/jquery.js"></script>
         <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
-        <script src="js/main.js"></script>
 
         <script>
+            window.onload = function() {
+                $('#loader').hide();
+            };
+
             $(document).ready(function() {
                 updateWCTime();
 
@@ -139,7 +147,7 @@
                     $('#contact').dialog({
                         modal: true,
                         height: "auto",
-                        width: "auto",
+                        width: 600,
                         close: function(event, ui) {
                             $(this).dialog('destroy');
                         }
@@ -180,20 +188,25 @@
             function updateWCTime()
             {
                 now = new Date();
-                kickoff = Date.parse("December 26, 2013 12:38:00");
+                kickoff = Date.parse("December 26, 2013 12:39:00");
                 diff = kickoff - now;
-                days = Math.floor(diff / (1000 * 60 * 60 * 24));
-                hours = Math.floor(diff / (1000 * 60 * 60));
-                mins = Math.floor(diff / (1000 * 60));
-                secs = Math.floor(diff / 1000);
-                dd = days;
-                hh = hours - days * 24;
-                mm = mins - hours * 60;
-                ss = secs - mins * 60;
-                document.getElementById("days").innerHTML = dd;
-                document.getElementById("hours").innerHTML = hh;
-                document.getElementById("minutes").innerHTML = mm;
-                document.getElementById("seconds").innerHTML = ss;
+
+                if (diff >= 0) {
+
+                    days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                    hours = Math.floor(diff / (1000 * 60 * 60));
+                    mins = Math.floor(diff / (1000 * 60));
+                    secs = Math.floor(diff / 1000);
+                    dd = days;
+                    hh = hours - days * 24;
+                    mm = mins - hours * 60;
+                    ss = secs - mins * 60;
+                    document.getElementById("days").innerHTML = dd;
+                    document.getElementById("hours").innerHTML = hh;
+                    document.getElementById("minutes").innerHTML = mm;
+                    document.getElementById("seconds").innerHTML = ss;
+
+                }
             }
             setInterval('updateWCTime()', 1);
 
@@ -220,33 +233,68 @@
             <button class="btn btn-primary">Close</button> 
         </div>
 
-        <div id="contact" class="dialog">
-            
+        <div id="contact" class="dialog" style="padding: 10px !important">
+
+            <div style="font-weight: bold">Shri Kutch Leva Patidar Samaj Bhavan (Hall)</div>
+            <div>Sector 15, Airoli</div>
+            <div>Navi Mumbai, Maharashtra 400708</div>
+            <div>India </div>
+            <br/> <br/>
+            <div style="font-weight: bold">By Car:</div>
             <div>
-                Muhurta: 12:39 PM 
+                <u>From Mumbai:</u>
+                <br />
+                From Eastern Express Highway, take the Airoli Exit 
+                and head towards Airoli on Mulund-Airoli Bridge.
+                As you cross the Toll Plaza, take the first left (Diva Chauk, Ramdas Swami Road).
+                Take the second left (landmark: Ganapati Temple). Two more left turns would take you to the hall.
             </div>
             <br />
+            <div>
+                <u>From Thane/Pune:</u>
+                <br />
+                From Thane-Belapur Road, take the exit to Airoli-Mulund Bridge Road 
+                and take the right at Diva Chauk (Ramdas Swami Road).
+                Take the second left (landmark: Ganapati Temple). Two more left turns would take you to the hall.
+            </div>
+            <br/> <br/>
+            <div style="font-weight: bold">By Bus:</div>
+            <div>Get down at Garam Masala Hotel bus stop and walk backwards towards Mulund.
+                Take the first right (small undeveloped road). You will reach the hall in 2 minutes.
+            </div>
+            <br />
+            <div><img src="img/bus.png" style="border: 1px solid #999"></div>
+            <br/> <br/>
+            <div style="font-weight: bold">By Local Train:</div>
+            <div>
+                From Airoli Station, you can either walk (15/20 mins) or take an auto for Gujarati Hall (Rs. 20/25).
+            </div>
+            <br /> <br />
+            <div><u>Here's a map with directions</u> [it's in Marathi, but might help you :)]</div><br/>
+            <div><img src="img/map.png" style="border: 1px solid #999"></div>
             <button class="btn btn-primary">Close</button> 
         </div>
-        
-        <div id="information" class="dialog">
+
+        <div id="information" class="dialog" style="padding: 10px !important">
             <div>
-                Muhurta: 12:39 PM 
+                <i>Muhurta</i>: 12:39 PM 
             </div>
             <div>
                 Reception: 6:00 PM to 9:00 PM 
             </div>
+            <br/> <br/>
             <div>
-                Muhurta: 12:39 PM 
+                You are invited to attend the <i>Muhurta</i> and the Reception (whatever suits you the best).
             </div>
+            <div style="font-size: 13px !important;color: #0081c2;font-weight: bold">Your presence is the only present desired.</div>
+            <br/> <br/>
             <div>
-                Muhurta: 12:39 PM 
-            </div>
-            <div>
-                Muhurta: 12:39 PM 
+                Contact: (091) 9869 202001 (Pranit)
             </div>
             <br />
             <button class="btn btn-primary">Close</button> 
         </div>
+
+        <noscript>
     </body>
 </html>

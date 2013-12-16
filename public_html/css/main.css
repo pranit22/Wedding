@@ -97,7 +97,7 @@ td {
 }
 
 .fancy {
-    font-family: 'Bad Script', cursive;
+    font-family: 'Electrolize', sans-serif;
     font-size: 30px;
     padding-bottom: 30px;    
     text-shadow: 1px 1px 1px #ffffff;
@@ -145,4 +145,8 @@ body .modal {
     margin: 10px 0px;
     float: right;
     outline: none;
+}
+
+.ui-widget {
+    font-size: 12px !important;
 }
