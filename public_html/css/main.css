@@ -88,6 +88,7 @@ td {
     text-shadow: 1px 1px 1px #ffffff;
     font-size: 20px;
     font-family: 'Electrolize', sans-serif;
+    padding-top: 10px;
 }
 
 #countdown_table {
@@ -102,12 +103,46 @@ td {
     text-shadow: 1px 1px 1px #ffffff;
 }
 
-.thumbs span {
+.thumbs>span {
     display: inline-block;
-    width: 19%;
+    width: 15%;
     padding: 20px 0px;
+    cursor: pointer;
+    margin: 20px 0px;
+    border-radius: 10px;
 } 
+
+.thumbs>span:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #dddddd;
+}
 
 .thumbs {
     background-color: rgba(0, 0, 0, 0.3);
+}
+
+body .modal {
+  height: auto;
+  width: auto;
+}
+
+#card1, #card2, #card3, #venue, #contact, #information {
+    display: none;
+}
+
+.ui-widget-overlay {
+    background: none !important;
+    background-color: #111 !important;
+    opacity: 0.9 !important;
+}
+
+.ui-dialog-titlebar {display:none}
+
+.ui-dialog .ui-dialog-content {padding: 2px !important;}
+
+.btn {
+    font-size: 12px !important;
+    margin: 10px 0px;
+    float: right;
+    outline: none;
 }

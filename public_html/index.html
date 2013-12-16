@@ -3,6 +3,8 @@
     <head>
         <title>Pranali-Pranit</title>
         <link href="css/main.css" rel="stylesheet">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet">
         <link href='http://fonts.googleapis.com/css?family=Berkshire+Swash' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400,700' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Electrolize' rel='stylesheet' type='text/css'>
@@ -52,57 +54,142 @@
                     </td>
                 </tr>
             </table>
-            
-                          <div class="thumbs">
-                        <span>
-                            <img src="img/card1_thumb.jpg"><br/>
-                            Wedding Card - 1
-                        </span>
-                        <span>
-                            <img src="img/card2_thumb.jpg"><br/>
-                            Wedding Card - 2
-                        </span>
-                        <span>
-                            <img src="img/card3_thumb.jpg"><br/>
-                            Wedding Card - 3
-                        </span>
-                        <span>
-                            <img src="img/location.png"><br/>
-                            Venue
-                        </span>
-                        <span>
-                            <img src="img/contact.png"><br/>
-                            Contact Us
-                        </span>
-                </div>
+
+            <div class="thumbs">
+                <span id="link1">
+                    <img src="img/card1_thumb.jpg"><br/><br/>
+                    <span class="fields">Wedding Card - 1</span>
+                </span>
+                <span id="link2">
+                    <img src="img/card2_thumb.jpg"><br/><br/>
+                    <span class="fields">Wedding Card - 2</span>
+                </span>
+                <span id="link3">
+                    <img src="img/card3_thumb.jpg"><br/><br/>
+                    <span class="fields">Wedding Card - 3</span>
+                </span>
+                <span id="link4">
+                    <img src="img/location.png"><br/><br/>
+                    <span class="fields">Venue</span>
+                </span>
+                <span id="link5">
+                    <img src="img/directions.png"><br/><br/>
+                    <span class="fields">Directions</span>
+                </span>
+                <span id="link6">
+                    <img src="img/information.png"><br/><br/>
+                    <span class="fields">Information</span>
+                </span>
+            </div>
         </div>
+
+
 
 
         <!-- Scripts -->
         <script src="http://code.jquery.com/jquery.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
         <script src="js/main.js"></script>
 
         <script>
             $(document).ready(function() {
                 updateWCTime();
-            });
 
+                $('#link1').click(function() {
+                    $('#card1').dialog({
+                        modal: true,
+                        height: "auto",
+                        width: "auto",
+                        close: function(event, ui) {
+                            $(this).dialog('destroy');
+                        }
+                    }).dialog('option', 'position', 'center');
+                });
+                $('#link2').click(function() {
+                    $('#card2').dialog({
+                        modal: true,
+                        height: "auto",
+                        width: "auto",
+                        close: function(event, ui) {
+                            $(this).dialog('destroy');
+                        }
+                    }).dialog('option', 'position', 'center');
+                });
+                $('#link3').click(function() {
+                    $('#card3').dialog({
+                        modal: true,
+                        height: "auto",
+                        width: "auto",
+                        close: function(event, ui) {
+                            $(this).dialog('destroy');
+                        }
+                    }).dialog('option', 'position', 'center');
+                });
+                $('#link4').click(function() {
+                    $('#venue').dialog({
+                        modal: true,
+                        height: "auto",
+                        width: "auto",
+                        close: function(event, ui) {
+                            $(this).dialog('destroy');
+                        }
+                    }).dialog('option', 'position', 'center');
+                });
+                $('#link5').click(function() {
+                    $('#contact').dialog({
+                        modal: true,
+                        height: "auto",
+                        width: "auto",
+                        close: function(event, ui) {
+                            $(this).dialog('destroy');
+                        }
+                    }).dialog('option', 'position', 'center');
+                });
+                $('#link6').click(function() {
+                    $('#information').dialog({
+                        modal: true,
+                        height: "auto",
+                        width: "auto",
+                        close: function(event, ui) {
+                            $(this).dialog('destroy');
+                        }
+                    }).dialog('option', 'position', 'center');
+                });
+
+                $('.btn').click(function() {
+                    if ($("#card1").hasClass('ui-dialog-content')) {
+                        $('#card1').dialog('close');
+                    }
+                    if ($("#card2").hasClass('ui-dialog-content')) {
+                        $('#card2').dialog('close');
+                    }
+                    if ($("#card3").hasClass('ui-dialog-content')) {
+                        $('#card3').dialog('close');
+                    }
+                    if ($("#venue").hasClass('ui-dialog-content')) {
+                        $('#venue').dialog('close');
+                    }
+                    if ($("#contact").hasClass('ui-dialog-content')) {
+                        $('#contact').dialog('close');
+                    }
+                    if ($("#information").hasClass('ui-dialog-content')) {
+                        $('#information').dialog('close');
+                    }
+                });
+            });
             function updateWCTime()
             {
                 now = new Date();
                 kickoff = Date.parse("December 26, 2013 12:38:00");
                 diff = kickoff - now;
-
                 days = Math.floor(diff / (1000 * 60 * 60 * 24));
                 hours = Math.floor(diff / (1000 * 60 * 60));
                 mins = Math.floor(diff / (1000 * 60));
                 secs = Math.floor(diff / 1000);
-
                 dd = days;
                 hh = hours - days * 24;
                 mm = mins - hours * 60;
                 ss = secs - mins * 60;
-
                 document.getElementById("days").innerHTML = dd;
                 document.getElementById("hours").innerHTML = hh;
                 document.getElementById("minutes").innerHTML = mm;
@@ -111,7 +198,55 @@
             setInterval('updateWCTime()', 1);
 
         </script>
+
+
+        <div id="card1" class="dialog">
+            <img src="img/card1.jpg" style="height: 100%"><br />
+            <button class="btn btn-primary">Close</button> 
+        </div>
+
+        <div id="card2" class="dialog">
+            <img src="img/card2.jpg" style="height: 100%"><br />
+            <button class="btn btn-primary">Close</button> 
+        </div>
+
+        <div id="card3" class="dialog">
+            <img src="img/card3.jpg" style="height: 100%"><br />
+            <button class="btn btn-primary">Close</button> 
+        </div>
+
+        <div id="venue" class="dialog">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m5!3m3!1m2!1s0x3be7b8adac25bd3b%3A0x8ebc72a96fa60a22!2sShri+Kutch+Leva+Patidar+Samaj+Bhavan+(Hall)%2C+Sector+15%2C+Airoli%2C+Navi+Mumbai%2C+MH%2C+India!5e0!3m2!1sen!2s!4v1387137776740" width="800" height="600" frameborder="0" style="border:0"></iframe><br />
+            <button class="btn btn-primary">Close</button> 
+        </div>
+
+        <div id="contact" class="dialog">
+            
+            <div>
+                Muhurta: 12:39 PM 
+            </div>
+            <br />
+            <button class="btn btn-primary">Close</button> 
+        </div>
         
-        <noscript>
+        <div id="information" class="dialog">
+            <div>
+                Muhurta: 12:39 PM 
+            </div>
+            <div>
+                Reception: 6:00 PM to 9:00 PM 
+            </div>
+            <div>
+                Muhurta: 12:39 PM 
+            </div>
+            <div>
+                Muhurta: 12:39 PM 
+            </div>
+            <div>
+                Muhurta: 12:39 PM 
+            </div>
+            <br />
+            <button class="btn btn-primary">Close</button> 
+        </div>
     </body>
 </html>
